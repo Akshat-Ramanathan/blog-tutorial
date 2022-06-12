@@ -1,0 +1,17 @@
+<nav>
+    <span>with nav in html -> </span>
+    <a href="/" {% if page.url=="/" %}style="color: red;" {% endif %}>
+        Home
+    </a>
+    <a href="/about.html" {% if page.url=="/about.html" %}style="color: red;" {% endif %}>
+        About
+    </a>
+    <hr />
+
+    <span>with nav in site.data.navigation (navigation.yml) -> </span>
+    {% for item in site.data.navigation %}
+    <a href="{{ item.link }}" {% if page.url==item.link %}style="color: red;" {% endif %}>
+        {{ item.name }}
+    </a>
+    {% endfor %}
+</nav>
